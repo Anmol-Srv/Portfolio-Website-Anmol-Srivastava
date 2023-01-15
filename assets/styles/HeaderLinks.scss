@@ -1,0 +1,165 @@
+@import "./base.scss";
+
+.headerLinks {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: currentColor;
+    transform: scale3d(0, 1, 1);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.5, 0.5, 0.3, 1);
+  }
+  &:after {
+    content: attr(data-Text);
+    position: absolute;
+    top: 0;
+    height: 1rem;
+    transform: translate3d(150%, 0, 0);
+    transition: transform 0.4s cubic-bezier(0.5, 0.5, 0.3, 1);
+  }
+  & span {
+    transition: transform 0.4s cubic-bezier(0.5, 0.5, 0.3, 1);
+  }
+  &:hover:before {
+    transform: scale3d(1, 1, 1);
+    transform-origin: left;
+  }
+
+  &:hover:after {
+    transform: translate3d(0, 0, 0);
+  }
+  &:hover span {
+    transform: translate3d(-150%, 0, 0);
+  }
+}
+
+// .contactButton{
+//     position: relative;
+//     border: none;
+//     cursor: pointer;
+//     width: 175px;
+//     height: 120px;
+//     background: none;
+//     color: $white-color;
+//     &:before,&:after{
+//         position: absolute;
+//         top:0;
+//         left:0;
+//         width: 100%;
+//         height: 100%;
+//     }
+// }
+
+.contactButton {
+  width: 100%;
+  padding: 8px;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+
+  &:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    @keyframes glowing {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 400% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  &:active {
+    color: #000;
+  }
+
+  &:active:after {
+    background: transparent;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  &:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  @media (max-width: 800px) {
+    & {
+      transform: scale3d(0.7, 0.7, 0.7);
+    }
+  }
+}
+
+.coloredIcon {
+  font-size: 35px;
+  &:hover {
+    animation: coloredIconAnimation 0.2s infinite;
+  }
+  @keyframes coloredIconAnimation {
+    0% {
+      text-shadow: 5px 4px $redBasic-color, -5px -6px $blueBasic-color;
+    }
+    25% {
+      text-shadow: -5px -6px $redBasic-color, 5px 4px $blueBasic-color;
+    }
+    50% {
+      text-shadow: 5px -4px $redBasic-color, -8px 4px $blueBasic-color;
+    }
+    75% {
+      text-shadow: -8px -4px $redBasic-color, -5px -4px $blueBasic-color;
+    }
+    100% {
+      text-shadow: -5px 0px $redBasic-color, 5px -4px $blueBasic-color;
+    }
+  }
+}
