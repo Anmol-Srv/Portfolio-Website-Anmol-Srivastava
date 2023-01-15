@@ -1,0 +1,88 @@
+@import "./base.scss";
+
+.About {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  .container {
+    background: transparent;
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: row;
+    gap: 40px;
+    // overflow-x: hidden;
+
+    .text {
+      position: absolute;
+      top: 8rem;
+      left: 3rem;
+      width: 50%;
+      height: max-content;
+
+      h1 {
+        font-size: 60px;
+        color: $blue-color;
+        // text-shadow: 1px 1px $white-color;
+      }
+
+      p {
+        color: white;
+      }
+
+      animation: float 4s ease-in-out infinite;
+
+      @keyframes float {
+        0%{
+          transform: translateY(0px);
+        }
+        50%{
+          transform: translateY(-40px);
+        }
+        100%{
+          transform: translateY(0px);
+        }
+      }
+    }
+
+    .image {
+      display: flex;
+      top: 4.5rem;
+      position: absolute;
+      left: 60%;
+      width: max-content;
+      height: max-content;
+
+
+      img {
+        width: 400px;
+      }
+
+      animation: float 3s ease-in-out infinite;
+
+      @keyframes float {
+        0%{
+          transform: translateY(0px);
+        }
+        50%{
+          transform: translateY(-40px);
+        }
+        100%{
+          transform: translateY(0px);
+        }
+      }
+    }
+  }
+}
+
+.web-gl2{
+  height: 100vh;
+  position: absolute;
+}
+
+.canvaselement2{
+  margin: 0;
+  height: 100vh;
+}
