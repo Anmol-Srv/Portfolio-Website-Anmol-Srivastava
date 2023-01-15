@@ -1,0 +1,43 @@
+@import "./base.scss";
+
+.container3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    h1{
+      color: white;
+    }
+    p{
+      color: white;
+    }
+    .text2 {
+      position: absolute;
+      width: 50%;
+      height: max-content;
+      top: 15rem;
+      left: 3rem;
+
+      animation: float 4s ease-in-out infinite;
+
+      @keyframes float {
+        0%{
+          transform: translateY(0px);
+        }
+        50%{
+          transform: translateY(-40px);
+        }
+        100%{
+          transform: translateY(0px);
+        }
+      }
+    }
+  
+    .web-gl3 {
+      margin: 0;
+      // top: 3rem;
+      position: absolute;
+      width: 50%;
+      height: max-content;
+    }
+  }
